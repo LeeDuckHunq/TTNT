@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Hệ thống Mạng ngữ nghĩa & Khung</title>
+    <style>        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <select id="dataSelect" class="btn btn-primary">
+                <option value="">📂 Tải dữ liệu</option>
+                <option value="animals">🐾 Thế giới động vật</option>
+                <option value="vehicles">🚗 Phương tiện giao thông</option>
+            </select>
+            <input type="file" id="fileInput" accept=".json" style="display: none;">
+            <button id="uploadBtn" class="btn btn-primary">📤 Tải file JSON</button>
+            <button id="compareBtn" class="btn" style="display: none;">Highlight</button>
+            <button id="resetBtn" class="btn btn-danger" style="display: none;">Làm mới</button>            
+            <div id="legend" class="legend">
+                <div class="legend-item">
+                    <div class="legend-line legend-blue"></div>
+                    <span>Kế thừa (is_a)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-line legend-green"></div>
+                    <span>Thuộc tính (has/can)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="panel">
+                <div class="panel-header">Mạng ngữ nghĩa (Semantic Network)</div>
+                <div class="panel-content">
+                    <div id="semanticEmpty" class="empty-state">
+                        <div class="empty-icon">📊</div>
+                        <div class="empty-text">Chọn dữ liệu để bắt đầu</div>
+                    </div>
+                    <canvas id="semanticCanvas"></canvas>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">Hệ thống khung (Frames)</div>
+                <div class="panel-content">
+                    <div id="frameEmpty" class="empty-state">
+                        <div class="empty-icon">⚠️</div>
+                        <div class="empty-text">Chưa có dữ liệu</div>
+                    </div>
+                    <canvas id="frameCanvas"></canvas>
+                    <div id="frameDetail" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="logic.js"></script>
+</body>
+</html>
